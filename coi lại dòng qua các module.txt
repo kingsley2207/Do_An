@@ -1,0 +1,30 @@
+lúc ngủ thì các module có tiêu thụ dòng hay không?
+
+lúc bình thường, led tắt ko có tải dòng tiêu thụ ở chân cấp nguồn của PIC là 4.9-5.2 (mA)
+		 led sáng dòng tiêu thụ 130-150 (mA) ở chân cấp nguồn của PIC, dù có trở hạn dòng qua led
+
+Nguồn pin 4.5V SLEEP
+
+dòng qua cảm biến nhiệt, lúc có người đi qua khoảng 0.44-0.5mA, ko có người đi qua khoảng 0.09-0.14mA.
+
+dòng qua module cảm biến ánh sáng, lúc trời tối 0.9-1.2mA
+dòng qua led 3.3-4mA
+
+dòng tổng lúc sleep (ko hoạt động): 0.38-0.5mA (chỉ còn CB nhiệt hoạt động)
+
+dòng tổng lúc hoạt động: 7-8mA (pic, đèn, cbas, cb nhiệt)
+
+
+Nguồn pin 4.5V BÌNH THƯỜNG
+
+dòng qua cảm biến nhiệt, lúc có người đi qua khoảng 0.44-0.5mA, ko có người đi qua khoảng 0.09-0.14mA.
+
+dòng qua module cảm biến ánh sáng, lúc trời tối 0.9-1.2mA
+
+dòng qua led 3.3-4mA
+pic ko hoạt động: 2.5-3mA
+
+dòng tổng lúc ko hoạt động: >5mA (CB nhiệt, CBAS hoạt động)
+
+dòng tổng lúc hoạt động: 9-10mA (pic, đèn, cbas, cb nhiệt)
+ 

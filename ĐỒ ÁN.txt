@@ -1,0 +1,37 @@
+#define Analog 0
+int giatricambienas, chuyendong;
+void setup() {
+  Serial.begin(9600);
+  pinMode(3,INPUT);
+  pinMode(13, OUTPUT);
+}
+void loop() {
+giatricambienas=analogRead(Analog);
+chuyendong=digitalRead(3);
+delay(200);
+Serial.print("Gia tri Analog: ");
+Serial.println(giatricambienas); 
+Serial.print("Gia tri digital: ");
+Serial.println(chuyendong);
+
+if (giatricambienas<350) //co anh sang, ko bat den
+{
+  digitalWrite(13,1);
+  Serial.println("Du sáng roi"); //tat den 
+}
+else if (giatricambienas>=350 && chuyendong==0)
+{ delay(150);
+  giatricambienas=analogRead(Analog); 
+  delay(150);
+  digitalWrite(13,0);
+  Serial.println("Bat den len");
+  delay(5000);   //bat den 5s
+  digitalWrite(13,1); Serial.println("Tat den di ngu"); delay(300);
+}
+if (giatricambienas>=350 && chuyendong==1) {
+    delay(150);
+    giatricambienas=analogRead(Analog); delay(150); //troi toi nhưng ko co nguoi di ngang
+    digitalWrite(13,1);
+    Serial.println("Tat den");                
+                    } //ko co nguoi di qua, tat den 
+}
